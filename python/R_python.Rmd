@@ -1,0 +1,28 @@
+
+```{r}
+library(reticulate)
+py_config()
+# use_python("/usr/bin/python3")
+# conda_list(conda = "/usr/local/anaconda3/bin/conda")
+# use_condaenv("anaconda3", conda = "/usr/local/anaconda3/bin/conda")
+```
+
+```{python}
+print(1)
+```
+
+```{r}
+dat = iris
+```
+
+```{python}
+dat = r.dat
+grouped = dat.groupby('Species').agg({'Petal.Width': 'mean'}).reset_index()
+grouped
+```
+
+```{r}
+dat = py$grouped
+```
+
+
